@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
-<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+<!--<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.noname.noname.user.repository.UserRepository">
-    <select id="findByLoginId" resultType="kr.noname.noname.user.entity.CmUserInfo">
+    <select id="findByLoginId" resultType="kr.noname.noname.user.entity.UserInfo">
         /* kr.noname.noname.user.repository.UserRepository.findByLoginId */
         SELECT USER_UID, USER_NM, USER_NKNM, BHDT, GNDR_CD, USER_CNO, USER_EMAIL, LOGIN_ID, LOGIN_PW, PW_UPDT_DTM
              , LOGIN_LOCK_YN, RCNT_LOGIN_DTM, USE_YN, RCRD_REG_DTM, RCRD_REG_ID, RCRD_UPDT_DTM, RCRD_UPDT_ID

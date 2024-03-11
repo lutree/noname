@@ -4,6 +4,9 @@ spring:
     url: ENC(gneVnrNC03uuDg9nM4kFvN/ozOJ+21ToSbeQM8HMQ9uDUSBBtl7M+PYx/ZU5eLNPoSkFKwX+zDQD4AtuY3k8Xi0uVFwDXqYiZHOdgq0mWnfJh5mGOBgJGN+ggJK82jkm6IYbrQ/ZyDxHXk8KJ2NK4twBN+9sGb18JDZsnpZSOmc=)
     username: ENC(yF9v9+5VRK08QT1k0Qfajv7AcincaaRU0tmVPousCrLkACCKXU+NWMJAIg8NQiTX)
     password: ENC(lqbPPyscsa/1Q+loT6zxd5cOX0wGxE+f7sX20U9kMnv8puS00wIw4/UsgQF2kLRF)
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
 mybatis:
   mapper-locations: classpath:mapper/user/*Mapper.xml   # Mybatis에서 사용할 Mapper 파일의 경로. 위의 경우에는 resources/mapper 폴더에서 Mapper.xml로 끝나는 모든 파일을 읽어들인다.
   type-aliases-package: kr.noname.nonameweb         # DTO, VO 등의 도메인 클래스가 포함된 패키지 경로. 필수 사항은 아니지만 이 항목을 설정하지 않으면 mapper 파일에서 DTO, VO를 사용할 때 패키지 경로를 모두 작성해야 한다.
@@ -18,5 +21,6 @@ springdoc:
     disable-swagger-default-url: true
     display-request-duration: true
     operations-sorter: alpha          # alpha : 알파뱃순으로 정렬, method : 메소드별로 정렬(DELETE → GET → PATCH → POST → PUT 순서)
+
 server:
   port: 9090

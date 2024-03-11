@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @Builder
-public class CmUserInfo {
+public class UserInfo {
 
   private String userUid;
   private String userNm;
