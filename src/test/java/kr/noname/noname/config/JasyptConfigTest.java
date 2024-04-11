@@ -35,17 +35,18 @@ class JasyptConfigTest {
     void 암호화_테스트 () {
         // given
         String url = "";
-        String username = "username";
+        String username = "sysopr";
         String password = "";
 
         // when
         String url_encrypted = encryptor.encrypt(url);
         String username_encrypted = encryptor.encrypt(username);
+//        String username_encrypted = "yF9v9+5VRK08QT1k0Qfajv7AcincaaRU0tmVPousCrLkACCKXU+NWMJAIg8NQiTX";
         String password_encrypted = encryptor.encrypt(password);
 
-        System.out.println(url_encrypted);
-        System.out.println(username_encrypted);
-        System.out.println(password_encrypted);
+        System.out.println("[url_encrypted] " + url_encrypted);
+        System.out.println("[username_encrypted] " + username_encrypted);
+        System.out.println("[password_encrypted] " + password_encrypted);
 
         // then
         assertThat(encryptor.decrypt(url_encrypted)).isEqualTo(url);

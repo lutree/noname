@@ -13,7 +13,7 @@
 </head>
 <body>
 <header data-bs-theme="dark">
-    <nav class="navbar navbar-dark fixed-top bg-danger">
+    <nav class="navbar navbar-dark fixed-top bg-dark">
         <div class="container position-relative">
             <a class="navbar-brand" href="#">Noname 노네임</a>
             <button class="navbar-toggler p-0 border-0" type="button" aria-label="Toggle navigation" id="navbarSideCollapse">
@@ -51,7 +51,7 @@
     </nav>
 </header>
 <!--<div class="b-example-divider"></div>-->
-<main style="display: none;">
+<main style="display: block;">
     <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -192,13 +192,27 @@
         <symbol id="twitter" viewBox="0 0 16 16">
             <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
         </symbol>
+        <symbol id="dice" viewBox="0 0 509.792 509.792" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="m406.932 201.423-123.281 213.529 192.946-30.954z"/>
+                <path d="m317.878 29.906 95.4 117.33 53.91-31.126z"/>
+                <path d="m226.141 414.952-123.28-213.529-69.666 182.575z"/>
+                <path d="m131.615 151.619h246.562l-123.281-151.619z"/>
+                <path d="m126.067 181.619 128.829 223.138 128.829-223.138z"/>
+                <path d="m269.896 447.542v62.25l149.31-86.204z"/>
+                <path d="m428.278 173.216 53.91 141.283v-172.408z"/>
+                <path d="m96.514 147.236 95.4-117.33-149.31 86.204z"/>
+                <path d="m81.514 173.216-53.91-31.125v172.408z"/>
+                <path d="m239.896 447.542-149.31-23.954 149.31 86.204z"/>
+            </g>
+        </symbol>
     </svg>
     <div class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="#" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
 <!--                    <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>-->
-                    <img src="assets/img/dice.svg" class="" alt="" style="fill: black;">
+                    <svg class="bi" width="24" height="24"><use xlink:href="#dice"/></svg>
                 </a>
                 <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc</span>
             </div>
