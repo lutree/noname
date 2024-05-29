@@ -1,57 +1,76 @@
 package kr.noname.noname.config;
 
+import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 import org.jasypt.iv.RandomIvGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@TestConfiguration
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class JasyptConfigTest {
 
-    StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+    @Value("${spring.datasource.url}")
+    private String url;
 
-    @BeforeEach
-    void setup() {
-        encryptor.setAlgorithm(JasyptConfig.ALGORITHM);
-        encryptor.setPassword(JasyptConfig.ENCRYPT_KEY);
-        encryptor.setIvGenerator(new RandomIvGenerator());
-    }
+    @Value("${spring.datasource.username}")
+    private String username;
 
-    @Test
-    void stringEncryptor() {
-    }
+    @Value("${spring.datasource.password}")
+    private String password;
 
-    @Test
-    void 환경변수_설정여부_확인 () {
-        // then
-        assertThat(JasyptConfig.ENCRYPT_KEY).isNotNull();
-        assertThat(JasyptConfig.ENCRYPT_KEY).isNotEmpty();
-    }
+    private JasyptConfig jasyptConfig = new JasyptConfig();
+    private StringEncryptor encryptor = jasyptConfig.stringEncryptor();
 
     @Test
-    void 암호화_테스트 () {
+    void DB암호_확인() {
         // given
-        String url = "";
-        String username = "sysopr";
-        String password = "";
+        String decryptedUrl = url;
+        String decryptedUsername = username;
+        String decryptedPassword = password;
 
         // when
-        String url_encrypted = encryptor.encrypt(url);
-        String username_encrypted = encryptor.encrypt(username);
-//        String username_encrypted = "yF9v9+5VRK08QT1k0Qfajv7AcincaaRU0tmVPousCrLkACCKXU+NWMJAIg8NQiTX";
-        String password_encrypted = encryptor.encrypt(password);
-
-        System.out.println("[url_encrypted] " + url_encrypted);
-        System.out.println("[username_encrypted] " + username_encrypted);
-        System.out.println("[password_encrypted] " + password_encrypted);
 
         // then
-        assertThat(encryptor.decrypt(url_encrypted)).isEqualTo(url);
-        assertThat(encryptor.decrypt(username_encrypted)).isEqualTo(username);
-        assertThat(encryptor.decrypt(password_encrypted)).isEqualTo(password);
+        System.out.println("url_encrypted: " + decryptedUrl);
+        System.out.println("username_encrypted: " + decryptedUsername);
+        System.out.println("password_encrypted: " + decryptedPassword);
     }
+
+    @Test
+    void DB암호화_테스트() {
+        // given
+        String url = "";
+        String username = "";
+        String password = "";
+        String tossSecretKey = "";
+
+        // when
+        String encryptedUrl = encryptor.encrypt(url);
+        String encryptedUsername = encryptor.encrypt(username);
+        String encryptedPassword = encryptor.encrypt(password);
+        String encryptedTossSecretKey = encryptor.encrypt(tossSecretKey);
+
+        // then
+        System.out.println("url: " + url);
+        System.out.println("username: " + username);
+        System.out.println("password: " + password);
+        System.out.println("tossSecretKey: " + tossSecretKey);
+
+        System.out.println("encryptedUrl: " + encryptedUrl);
+        System.out.println("encryptedUsername: " + encryptedUsername);
+        System.out.println("encryptedPassword: " + encryptedPassword);
+        System.out.println("encryptedTossSecretKey: " + encryptedTossSecretKey);
+
+        assertThat(encryptor.decrypt(encryptedUrl)).isEqualTo(url);
+        assertThat(encryptor.decrypt(encryptedUsername)).isEqualTo(username);
+        assertThat(encryptor.decrypt(encryptedPassword)).isEqualTo(password);
+        assertThat(encryptor.decrypt(encryptedTossSecretKey)).isEqualTo(tossSecretKey);
+    }
+
 
 }

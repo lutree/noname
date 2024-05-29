@@ -13,7 +13,7 @@ public class JasyptConfig {
 
 //    private static final String ALGORITHM = "PBEWithMD5AndDES";
     public static final String ALGORITHM = "PBEWITHHMACSHA512ANDAES_256";
-    public static final String ENCRYPT_KEY = System.getenv("jasypt_encrypt_key");
+    public static final String ENCRYPT_KEY = System.getenv("JASYPT_SECRET_KEY");
 
     @Bean("jasyptStringEncryptor")
     public StringEncryptor stringEncryptor() {
