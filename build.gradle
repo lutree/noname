@@ -12,8 +12,13 @@ java {
     sourceCompatibility = '17'
 }
 
-bootWar {
-    archiveName 'noname.war'
+war {
+    if (project.gradle.gradleVersion >= '5.1') {
+        archiveFileName = 'noname.war'
+    } else {
+        baseName = 'noname'
+        extension = 'war'
+    }
 }
 
 configurations {
