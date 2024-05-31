@@ -9,7 +9,7 @@ spring:
     suffix: .html
 mybatis:
   mapper-locations: classpath:mapper/user/*Mapper.xml   # Mybatis에서 사용할 Mapper 파일의 경로. 위의 경우에는 resources/mapper 폴더에서 Mapper.xml로 끝나는 모든 파일을 읽어들인다.
-  type-aliases-package: kr.noname.nonameweb         # DTO, VO 등의 도메인 클래스가 포함된 패키지 경로. 필수 사항은 아니지만 이 항목을 설정하지 않으면 mapper 파일에서 DTO, VO를 사용할 때 패키지 경로를 모두 작성해야 한다.
+  type-aliases-package: kr.noname.noname            # DTO, VO 등의 도메인 클래스가 포함된 패키지 경로. 필수 사항은 아니지만 이 항목을 설정하지 않으면 mapper 파일에서 DTO, VO를 사용할 때 패키지 경로를 모두 작성해야 한다.
   configuration:
     jdbc-type-for-null: null                        # Mybatis의 SQL 문에 null을 파라미터로 전송할 수 있게 해준다.
 springdoc:
